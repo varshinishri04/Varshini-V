@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindsprint Navigation</title>
+    <style>
+        .nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-item {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+        }
+        .content {
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="showContent()">About</a>
+        </li>
+    </ul>
+
+    <div class="content" id="about-content">
+        <p>Mindsprint is a leading-edge technology and business services firm...</p>
+    </div>
+
+    <script>
+        function showContent() {
+            const content = document.getElementById('about-content');
+            content.style.display = 'block'; 
+        }
+    </script>
+</body>
+</html>
