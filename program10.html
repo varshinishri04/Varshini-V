@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phonebook</title>
+    <style>
+        /* ... Your existing styles ... */
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #4e1b1b;
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="contacts">
+        <!-- ... Your existing table ... -->
+
+        <!-- Modal for editing -->
+        <div class="modal" id="editModal">
+            <div class="modal-content">
+                <h3>Edit Contact</h3>
+                <input type="text" id="newPhoneNumber" placeholder="New phone number">
+                <button id="saveEdit">Save</button>
+                <button id="cancelEdit">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Example event listener for edit button
+        const editButtons = document.querySelectorAll(".edit-button");
+        const editModal = document.getElementById("editModal");
+        const newPhoneNumberInput = document.getElementById("newPhoneNumber");
+        const saveEditButton = document.getElementById("saveEdit");
+        const cancelEditButton = document.getElementById("cancelEdit");
+
+        let currentContactName; // Store the name of the contact being edited
+
+        editButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                editModal.style.display = "block";
+                currentContactName = button.closest("tr").querySelector("td:first-child").textContent;
+            });
+        });
+
+        saveEditButton.addEventListener("click", () => {
+            const newPhoneNumber = newPhoneNumberInput.value;
+            // Implement your logic to update the contact's phone number
+            console.log(`Updating ${currentContactName}'s phone number to ${newPhoneNumber}`);
+            editModal.style.display = "none";
+        });
+
+        cancelEditButton.addEventListener("click", () => {
+            editModal.style.display = "none";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Employee(id,name,email,department,salery,doj){
+            this.id=id;
+            this.name=name;
+            this.email=email;
+            this.department=department;
+            this.salery=salery;
+            this.doj=doj;
+        }
+        Employee.prototype.display=function(){
+            console.log('Name: '+this.name);
+            console.log('Departmenr: '+this.department);
+            console.log('Salery: '+this.salery);
+        }
+        Employee.prototype.experience=function(){
+            console.log('No of Exp: '+(2024-this.doj));
+        }
+        const emp1= new Employee(1,'Alex','alex@gmail.com','I.T',536437,2024);
+        emp1.display();
+        emp1.experience();
+        console.log(emp1);
+
+    </script>
+</body>
+</html>

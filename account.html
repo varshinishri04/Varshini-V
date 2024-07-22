@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+class Account {
+    constructor(acc_holder_name, acc_no, balance = 0) {
+        this.acc_holder_name = acc_holder_name;
+        this.acc_no = acc_no;
+        this.balance = balance;
+    }
+
+    deposit(amount) {
+        this.balance += amount;
+        console.log(`Deposited ${amount} CAD. New balance: ${this.balance} CAD`);
+    }
+
+    withdraw(amount) {
+        if (this.balance >= amount) {
+            this.balance -= amount;
+            console.log(`Withdrew ${amount} CAD. New balance: ${this.balance} CAD`);
+        } else {
+            console.log("Insufficient balance. Withdrawal not allowed.");
+        }
+    }
+
+    check_balance() {
+        console.log(`Account holder: ${this.acc_holder_name}`);
+        console.log(`Account number: ${this.acc_no}`);
+        console.log(`Current balance: ${this.balance} CAD`);
+    }
+}
+
+const myAccount = new Account("John Doe", "123456");
+myAccount.deposit(1000);
+myAccount.withdraw(500);
+myAccount.check_balance();
+
+    </script>
+</body>
+</html>

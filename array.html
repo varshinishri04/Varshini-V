@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function createUniqueArray(originalArray) {
+    let uniqueArray = [];
+    for (let i = 0; i < originalArray.length; i++) {
+        if (!uniqueArray.includes(originalArray[i])) {
+            uniqueArray.push(originalArray[i]);
+        }
+    }
+    return uniqueArray;
+}
+const originalArray = [1, 2, 3, 2, 4, 5, 3, 6, 7, 7, 8];
+const resultArray = createUniqueArray(originalArray);
+console.log("Unique array:", resultArray);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phonebook</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #D9D9D9;
+        }
+        #contacts {
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #F9F9F9;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #E0E0E0;
+        }
+        .edit-input, .delete-button {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="contacts">
+        <h2>Phonebook</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="contactList">
+                <!-- Contacts will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        class Phonebook {
+            constructor() {
+                this.contacts = {};
+            }
+
+            addContact(name, phoneNumber) {
+                this.contacts[name] = phoneNumber;
+            }
+
+            editContact(name, newPhoneNumber) {
+                if (name in this.contacts) {
+                    this.contacts[name] = newPhoneNumber;
+                    console.log(`Contact for ${name} updated successfully.`);
+                } else {
+                    console.log(`${name} not found in the phonebook.`);
+                }
+            }
+
+            deleteContact(name) {
+                if (name in this.contacts) {
+                    delete this.contacts[name];
+                    console.log(`Contact for ${name} deleted successfully.`);
+                } else {
+                    console.log(`${name} not found in the phonebook.`);
+                }
+            }
+
+            displayContacts() {
+                console.log("Phonebook Contacts:");
+                for (const [name, phoneNumber] of Object.entries(this.contacts)) {
+                    console.log(`${name}: ${phoneNumber}`);
+                }
+            }
+        }
+
+        // Example usage
+        const phonebook = new Phonebook();
+        phonebook.addContact("Varshini", "123-456-7890");
+        phonebook.addContact("Anisha", "987-654-3210");
+
+        phonebook.displayContacts();
+
+        phonebook.editContact("Varshini", "555-123-4567");
+        phonebook.deleteContact("Anisha");
+
+        phonebook.displayContacts();
+    </script>
+</body>
+</html>
+
